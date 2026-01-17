@@ -1,19 +1,24 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/cpp:latest",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-vscode.cpptools",
-                "ms-vscode.cpptools-extension-pack",
-                "ms-vscode.cmake-tools",
-                "twxs.cmake"
-            ],
-            "settings": {
-                "C_Cpp.default.cppStandard": "c++17",
-                "C_Cpp.default.cStandard": "c99",
-                "terminal.integrated.shell.linux": "/bin/bash"
-    }
- }
+  "image": "mcr.microsoft.com/devcontainers/cpp:latest",
 
-}
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",                 // C/C++ language support + debugger
+        "ms-vscode.cpptools-extension-pack", // Extra tooling (recommended)
+        "ms-vscode.cmake-tools",             // CMake integration
+        "twxs.cmake",                        // CMake syntax highlighting
+        "formulahendry.code-runner"          // ▶ Run C/C++ easily (great for students)
+      ],
+      "settings": {
+        "C_Cpp.default.cppStandard": "c++17",
+        "C_Cpp.default.cStandard": "c99",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "code-runner.executorMap": {
+          "c": "gcc $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+          "cpp": "g++ -std=c++17 $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt"
+        }
+      }
+    }
+  }
 }
